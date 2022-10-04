@@ -25,7 +25,7 @@ export const LocationButton = styled.button`
   border: none;
   border-radius: 6px;
   font-size: 0.875rem;
-  line-height: 18.2;
+  line-height: 18.2px;
   background: ${(props) => props.theme['purple-light']};
   color: ${(props) => props.theme['purple-dark']};
   cursor: pointer;

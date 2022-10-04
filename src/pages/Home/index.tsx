@@ -1,5 +1,6 @@
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import mainImage from '../../assets/main-image.svg'
+import { CoffeeCard } from '../../components/CoffeeCard'
 import * as S from './styles'
 
 export function Home() {
@@ -43,6 +44,25 @@ export function Home() {
         </S.ContentContainer>
         <img src={mainImage} alt="" />
       </S.IntroContainer>
+      <S.CoffeeListContainer>
+        <h2>Nossos cafés</h2>
+        <S.List>
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+        </S.List>
+      </S.CoffeeListContainer>
     </main>
   )
 }
