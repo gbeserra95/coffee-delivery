@@ -5,7 +5,7 @@ export type Categories =
   | 'especial'
   | 'alcoólico'
 
-interface CoffeeProps {
+export interface Coffee {
   id: Number
   image: string
   name: string
@@ -14,7 +14,7 @@ interface CoffeeProps {
   price: Number
 }
 
-export const CoffeeList: CoffeeProps[] = [
+export const CoffeeList: Coffee[] = [
   {
     id: 1,
     image: '../assets/expresso.png',
