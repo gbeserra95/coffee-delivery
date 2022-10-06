@@ -1,6 +1,7 @@
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import mainImage from '../../assets/main-image.svg'
 import { CoffeeCard } from '../../components/CoffeeCard'
+import { CoffeeList } from '../../utils/data'
 import * as S from './styles'
 
 export function Home() {
@@ -47,20 +48,16 @@ export function Home() {
       <S.CoffeeListContainer>
         <h2>Nossos cafés</h2>
         <S.List>
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
+          {CoffeeList.map((coffee) => (
+            <CoffeeCard
+              key={String(coffee.id)}
+              image={coffee.image}
+              categories={coffee.categories}
+              name={coffee.name}
+              description={coffee.description}
+              price={coffee.price}
+            />
+          ))}
         </S.List>
       </S.CoffeeListContainer>
     </main>
