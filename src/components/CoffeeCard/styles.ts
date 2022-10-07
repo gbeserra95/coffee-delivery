@@ -87,7 +87,7 @@ export const ButtonsContainer = styled.div`
   gap: 0.5rem;
 `
 
-export const QuantityButton = styled.button`
+export const QuantityButton = styled.div`
   width: 4.5rem;
   height: 2.375rem;
   display: flex;
@@ -103,12 +103,22 @@ export const QuantityButton = styled.button`
   color: ${(props) => props.theme['base-title']};
   background: ${(props) => props.theme['base-button']};
 
-  svg {
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
     color: ${(props) => props.theme.purple};
     transition: color 0.1s;
     cursor: pointer;
 
-    &:hover {
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:not(:disabled):hover {
       color: ${(props) => props.theme['purple-dark']};
     }
   }
@@ -127,7 +137,12 @@ export const CartButton = styled.button`
   transition: background 0.1s;
   cursor: pointer;
 
-  &:hover {
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:not(:disabled):hover {
     background: ${(props) => props.theme.purple};
   }
 `

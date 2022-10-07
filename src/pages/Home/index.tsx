@@ -50,7 +50,7 @@ export function Home() {
         <S.List>
           {CoffeeList.map((coffee) => (
             <CoffeeCard
-              key={String(coffee.id)}
+              key={coffee.name}
               image={coffee.image}
               categories={coffee.categories}
               name={coffee.name}

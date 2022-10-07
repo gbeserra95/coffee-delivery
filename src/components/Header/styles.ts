@@ -36,6 +36,7 @@ export const LocationButton = styled.button`
 `
 
 export const CartButton = styled.button`
+  position: relative;
   width: 2.375rem;
   height: 2.375rem;
   display: flex;
@@ -46,4 +47,22 @@ export const CartButton = styled.button`
   background: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};
   cursor: pointer;
+`
+
+export const CartCounter = styled.div`
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -0.375rem;
+  right: -0.375rem;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  background: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme.white};
+  font-size: 0.75rem;
+  font-weight: 700;
 `
