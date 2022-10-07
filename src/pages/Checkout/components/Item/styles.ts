@@ -30,9 +30,9 @@ export const ItemDescription = styled.div`
   }
 `
 
-export const Button = styled.button`
+export const QuantityButton = styled.div`
   width: 4.5rem;
-  height: 2.375rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,27 +43,53 @@ export const Button = styled.button`
   font-weight: 400;
   line-height: 130%;
   text-align: center;
-  color: ${(props) => props.theme['base-text']};
-  text-transform: uppercase;
+  color: ${(props) => props.theme['base-title']};
   background: ${(props) => props.theme['base-button']};
 
-  svg {
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
     color: ${(props) => props.theme.purple};
     transition: color 0.1s;
     cursor: pointer;
 
-    &:hover {
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &:not(:disabled):hover {
       color: ${(props) => props.theme['purple-dark']};
     }
   }
 `
 
-export const RemoveButton = styled(Button)`
-  width: 5.75rem;
+export const RemoveButton = styled.button`
+  width: 5.625rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  padding: 0 0.5rem;
   font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 160%;
+  text-align: center;
+  text-transform: uppercase;
+  color: ${(props) => props.theme['base-text']};
+  background: ${(props) => props.theme['base-button']};
   transition: color 0.1s;
   cursor: pointer;
   transition: background 0.1s;
+
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
 
   &:hover {
     background: ${(props) => props.theme['base-hover']};

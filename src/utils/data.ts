@@ -11,7 +11,7 @@ export interface Coffee {
   name: string
   description: string
   categories: Categories[]
-  price: Number
+  price: number
 }
 
 export const CoffeeList: Coffee[] = [

@@ -20,7 +20,7 @@ export function cartReducer(state: CartState, action: any) {
     case ActionTypes.REMOVE_ITEM: {
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
+        items: state.items.filter((item) => item.id !== action.payload.itemId),
       }
     }
     case ActionTypes.CLEAR_CART: {
@@ -30,27 +30,29 @@ export function cartReducer(state: CartState, action: any) {
       }
     }
     case ActionTypes.INCREMENT_ITEM: {
-      const itemToIncrement = state.items.find(
-        (item) => item.id === action.payload,
-      )
+      const updatedState = state.items.map((item) => {
+        if (item.id === action.payload.itemId)
+          return { ...item, quantity: item.quantity + 1 }
 
-      itemToIncrement!.quantity++
+        return item
+      })
 
       return {
         ...state,
-        items: [...state.items, itemToIncrement],
+        items: updatedState,
       }
     }
     case ActionTypes.DECREMENT_ITEM: {
-      const itemToDecrement = state.items.find(
-        (item) => item.id === action.payload,
-      )
+      const updatedState = state.items.map((item) => {
+        if (item.id === action.payload.itemId)
+          return { ...item, quantity: item.quantity - 1 }
 
-      itemToDecrement!.quantity--
+        return item
+      })
 
       return {
         ...state,
-        items: [...state.items, itemToDecrement],
+        items: updatedState,
       }
     }
     default:
