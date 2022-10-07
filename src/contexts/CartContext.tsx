@@ -1,17 +1,20 @@
 import { useEffect, createContext, useReducer, ReactNode } from 'react'
-import { Coffee } from '../utils/data'
 import { Item, cartReducer } from '../reducers/cart/reducer'
 import {
   addNewItemAction,
-  clearCartAction,
   removeItemAction,
+  clearCartAction,
+  incrementItemAction,
+  decrementItemAction,
 } from '../reducers/cart/actions'
 
 interface CartContextType {
   items: Item[]
-  addItemToCart: (item: Coffee) => void
-  removeItemFromCart: (item: Item) => void
+  addItemToCart: (item: Item) => void
+  removeItemFromCart: (itemId: number) => void
   clearCart: () => void
+  incrementItem: (itemId: number) => void
+  decrementItem: (itemId: number) => void
 }
 
 interface CartContextProviderPros {
@@ -51,27 +54,34 @@ export function CartContextProvider({ children }: CartContextProviderPros) {
     )
   }, [cartState])
 
-  function addItemToCart(item: Coffee) {
-    const cartId = String(new Date().getTime())
-
+  function addItemToCart(item: Item) {
     const newItem: Item = {
-      cartId,
+      id: item.id,
       categories: item.categories,
       name: item.name,
       description: item.description,
       image: item.image,
       price: item.price,
+      quantity: item.quantity,
     }
 
     dispatch(addNewItemAction(newItem))
   }
 
-  function removeItemFromCart(item: Item) {
-    dispatch(removeItemAction(item))
+  function removeItemFromCart(itemId: number) {
+    dispatch(removeItemAction(itemId))
   }
 
   function clearCart() {
     dispatch(clearCartAction())
+  }
+
+  function incrementItem(itemId: number) {
+    dispatch(incrementItemAction(itemId))
+  }
+
+  function decrementItem(itemId: number) {
+    dispatch(decrementItemAction(itemId))
   }
 
   return (
@@ -81,6 +91,8 @@ export function CartContextProvider({ children }: CartContextProviderPros) {
         addItemToCart,
         removeItemFromCart,
         clearCart,
+        incrementItem,
+        decrementItem,
       }}
     >
       {children}

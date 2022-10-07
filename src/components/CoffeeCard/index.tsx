@@ -1,24 +1,17 @@
 import { useState, useContext } from 'react'
 import { ShoppingCart, Minus, Plus } from 'phosphor-react'
-import { Categories } from '../../utils/data'
+import { Coffee, Categories } from '../../utils/data'
 import * as S from './styles'
-import { CartContext } from '../../context/CartContext'
-
-interface CoffeeCardProps {
-  image: string
-  name: string
-  description: string
-  categories: Categories[]
-  price: Number
-}
+import { CartContext } from '../../contexts/CartContext'
 
 export function CoffeeCard({
+  id,
   image,
   categories,
   name,
   description,
   price,
-}: CoffeeCardProps) {
+}: Coffee) {
   const { addItemToCart } = useContext(CartContext)
   const [counter, setCounter] = useState(0)
 
@@ -36,15 +29,15 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    for (let i = 0; i < counter; i++) {
-      addItemToCart({
-        image,
-        categories,
-        name,
-        description,
-        price,
-      })
-    }
+    addItemToCart({
+      id,
+      image,
+      categories,
+      name,
+      description,
+      price,
+      quantity: counter,
+    })
     alert(`Você adicionou ${counter} item(s) no carrinho.\n - ${name}`)
   }
 

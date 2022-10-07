@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
 import { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
+import { CartContext } from '../../contexts/CartContext'
 
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import logoCoffeeDelivery from '../../assets/logo.svg'
