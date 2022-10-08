@@ -6,6 +6,8 @@ Esta aplicação é uma simulação de uma Loja Virtual de Cafés e foi desenvol
 
 *OBS: No final do fluxo, na página de sucesso, o formato JSON dos dados de compra que seriam enviados ao backend podem ser visualizados no console log do browser.*
 
+[Clique aqui](https://coffee-delivery-lemon.vercel.app/) para ver a demo!
+
 ## Construído com
 
 - [React](https://pt-br.reactjs.org/)
