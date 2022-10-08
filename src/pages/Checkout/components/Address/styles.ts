@@ -49,17 +49,28 @@ export const FormFieldContainer = styled.div`
   gap: 0.75rem;
 `
 
-export const BaseInput = styled.input`
+interface BaseInputProps {
+  isError?: boolean
+}
+
+export const BaseInput = styled.input<BaseInputProps>`
   display: flex;
   align-items: center;
   height: 2.625rem;
-  border: 1px solid ${(props) => props.theme['base-button']};
+  border: ${(props) =>
+    props.isError
+      ? '2px solid red'
+      : `1px solid ${props.theme['base-button']}`};
   border-radius: 4px;
   padding: 0.75rem;
   font-size: 0.875rem;
   line-height: 130%;
   color: ${(props) => props.theme['base-text']};
   background: ${(props) => props.theme['base-input']};
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &::placeholder {
     color: ${(props) => props.theme['base-label']};

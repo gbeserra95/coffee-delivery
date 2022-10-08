@@ -32,6 +32,7 @@ export function DeliveryContextProvider({
     zipCode: '',
     street: '',
     number: '',
+    complement: '',
     suburb: '',
     city: 'Blumenau',
     state: 'SC',

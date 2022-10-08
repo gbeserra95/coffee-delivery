@@ -45,25 +45,30 @@ export const Buttons = styled.div`
   svg {
     color: ${(props) => props.theme.purple};
   }
+`
 
-  button {
-    display: flex;
-    width: 11.125rem;
-    height: 3.1875rem;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    color: ${(props) => props.theme['base-text']};
-    background: ${(props) => props.theme['base-button']};
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.1s;
+interface PaymentButtonProps {
+  selected?: boolean
+}
 
-    &:hover {
-      background: ${(props) => props.theme['base-hover']};
-    }
+export const PaymentButton = styled.button<PaymentButtonProps>`
+  display: flex;
+  width: 11.125rem;
+  height: 3.1875rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: ${(props) =>
+    props.selected ? `1px solid ${props.theme.purple}` : 'none'};
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: ${(props) => props.theme['base-text']};
+  background: ${(props) => props.theme['base-button']};
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.1s;
+
+  &:hover {
+    background: ${(props) => props.theme['base-hover']};
   }
 `
