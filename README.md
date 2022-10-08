@@ -1,12 +1,10 @@
-<div align="center">
-    <h1>Coffee Delivery</h1>
-</div>
+# Coffee Delivery
 
 ## Sobre
 
-Esta aplicação é uma simulação de uma Loja Virtual de Cafés e foi desenvolvida com o objetivo de aplicar conhecimentos em React vistos no curso **Ignite** da [Rocketseat](https://www.rocketseat.com.br/).
+Esta aplicação é uma simulação de uma Loja Virtual de Cafés e foi desenvolvida com o objetivo de aplicar os conhecimentos de React vistos durante o curso **Ignite** da [Rocketseat](https://www.rocketseat.com.br/).
 
-*OBS: No final do fluxo, na página de sucesso, o formato JSON dos dados de compra que seriam enviados ao backend podem ser visualizados no console log do browser*
+*OBS: No final do fluxo, na página de sucesso, o formato JSON dos dados de compra que seriam enviados ao backend podem ser visualizados no console log do browser.*
 
 ## Construído com
 
