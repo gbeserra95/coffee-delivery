@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
+import { DeliveryContext } from '../../contexts/DeliveryContext'
 
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import logoCoffeeDelivery from '../../assets/logo.svg'
@@ -10,6 +11,8 @@ import * as S from './styles'
 
 export function Header() {
   const { items } = useContext(CartContext)
+  const { address } = useContext(DeliveryContext)
+
   return (
     <S.HeaderContainer>
       <NavLink to="/">
@@ -18,7 +21,7 @@ export function Header() {
       <S.ActionsContainer>
         <S.LocationButton>
           <MapPin size={22} weight="fill" />
-          Porto Alegre, RS
+          {address.city}, {address.state}
         </S.LocationButton>
         <NavLink to="/checkout">
           <S.CartButton>
