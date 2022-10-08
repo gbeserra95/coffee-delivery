@@ -47,6 +47,10 @@ export const InputsContainer = styled.div`
 export const FormFieldContainer = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 
 interface BaseInputProps {
@@ -79,6 +83,10 @@ export const BaseInput = styled.input<BaseInputProps>`
 
 export const CEP = styled(BaseInput)`
   width: min(100%, 12.5rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const Street = styled(BaseInput)`
@@ -87,20 +95,40 @@ export const Street = styled(BaseInput)`
 
 export const Number = styled(BaseInput)`
   width: min(100%, 12.5rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const Complement = styled(BaseInput)`
   width: min(100%, 21.75rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const Suburb = styled(BaseInput)`
   width: min(100%, 12.5rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const City = styled(BaseInput)`
   width: min(100%, 17.25rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const UF = styled(BaseInput)`
   width: min(100%, 3.75rem);
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `

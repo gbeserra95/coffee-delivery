@@ -8,6 +8,18 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1440px) {
+    padding: 0 4rem;
+  }
+
+  @media (max-width: 1260px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0 1rem;
+  }
 `
 
 export const ActionsContainer = styled.nav`
@@ -15,7 +27,7 @@ export const ActionsContainer = styled.nav`
   gap: 0.75rem;
 `
 
-export const LocationButton = styled.button`
+export const LocationContainer = styled.div`
   width: 9rem;
   height: 2.375rem;
   display: flex;
@@ -28,7 +40,6 @@ export const LocationButton = styled.button`
   line-height: 18.2px;
   background: ${(props) => props.theme['purple-light']};
   color: ${(props) => props.theme['purple-dark']};
-  cursor: pointer;
 
   svg {
     color: ${(props) => props.theme.purple};

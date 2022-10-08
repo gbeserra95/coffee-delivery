@@ -41,6 +41,8 @@ export const Title = styled.div`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
+  row-gap: 1rem;
+  flex-wrap: wrap;
 
   svg {
     color: ${(props) => props.theme.purple};

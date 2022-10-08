@@ -19,10 +19,10 @@ export function Header() {
         <img src={logoCoffeeDelivery} alt="" />
       </NavLink>
       <S.ActionsContainer>
-        <S.LocationButton>
+        <S.LocationContainer>
           <MapPin size={22} weight="fill" />
           {address.city}, {address.state}
-        </S.LocationButton>
+        </S.LocationContainer>
         <NavLink to="/checkout">
           <S.CartButton>
             {items.length !== 0 && (

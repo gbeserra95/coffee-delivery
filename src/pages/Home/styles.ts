@@ -7,6 +7,26 @@ export const IntroContainer = styled.div`
   width: 100%;
   padding: 5.875rem 0;
   align-items: center;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: 1fr;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 1260px) {
+    padding: 4rem 0;
+  }
+
+  @media (max-width: 900px) {
+    padding: 2rem 0;
+
+    img {
+      width: 90%;
+    }
+  }
 `
 
 export const ContentContainer = styled.div`
@@ -14,6 +34,18 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 4.125rem;
+
+  @media (max-width: 1440px) {
+    gap: 3rem;
+  }
+
+  @media (max-width: 1260px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    gap: 1rem;
+  }
 
   h1 {
     font-family: 'Baloo 2';
@@ -38,6 +70,11 @@ export const ItemsContainer = styled.div`
   grid-template-columns: auto auto;
   column-gap: 2.5rem;
   row-gap: 1.25rem;
+
+  @media (max-width: 1440px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `
 
 export const ItemContainer = styled.div`
@@ -80,14 +117,31 @@ export const CoffeeListContainer = styled.div`
     font-weight: 800;
     color: ${(props) => props.theme['base-subtitle']};
     line-height: 41.6px;
+
+    @media (max-width: 1260px) {
+      text-align: center;
+    }
   }
 `
 
 export const List = styled.ul`
   display: grid;
   grid-template-columns: auto auto auto auto;
+  justify-content: center;
   column-gap: 2rem;
   row-gap: 2.5rem;
   margin-top: 3.375rem;
   list-style: none;
+
+  @media (max-width: 1260px) {
+    grid-template-columns: auto auto auto;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: auto auto;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: auto;
+  }
 `

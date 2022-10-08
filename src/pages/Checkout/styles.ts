@@ -5,6 +5,8 @@ export const Form = styled.form`
   flex: 1;
   gap: 2rem;
   padding: 2.5rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 
   h2 {
     font-family: 'Baloo 2';
@@ -25,4 +27,8 @@ export const LeftFormContainer = styled.div`
 
 export const RightFormContainer = styled(LeftFormContainer)`
   width: min(28rem, 100%);
+
+  @media (max-width: 1200px) {
+    width: min(40rem, 100%);
+  }
 `

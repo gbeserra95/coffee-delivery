@@ -8,6 +8,14 @@ export const Title = styled.div`
   margin-bottom: 2.5rem;
   gap: 0.25rem;
 
+  @media (max-width: 1260px) {
+    padding-top: 4rem;
+  }
+
+  @media (max-width: 900px) {
+    padding-top: 2rem;
+  }
+
   h1 {
     font-family: 'Baloo 2';
     font-size: 2rem;
@@ -27,6 +35,14 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+
+  @media (max-width: 600px) {
+    img {
+      width: 100%;
+    }
+  }
 `
 
 export const InfoContainer = styled.div`
