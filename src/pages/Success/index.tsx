@@ -1,8 +1,14 @@
+import { useContext } from 'react'
+import { DeliveryContext } from '../../contexts/DeliveryContext'
+
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
 import deliverySuccessImage from '../../assets/illustration.svg'
+
 import * as S from './styles'
 
 export function Success() {
+  const { address, paymentType } = useContext(DeliveryContext)
+
   return (
     <main>
       <S.Title>
@@ -16,9 +22,12 @@ export function Success() {
               <MapPin size={16} />
             </S.Icon>
             <S.Text>
-              Entrega em <span>Rua João Daniel Martinelli, 102</span>
+              Entrega em{' '}
+              <span>
+                {address.street}, {address.number}
+              </span>
               <br />
-              Farrapos - Porto Alegre, RS
+              {address.suburb} - {address.city}, {address.state}
             </S.Text>
           </S.Info>
           <S.Info>
@@ -38,7 +47,9 @@ export function Success() {
             <S.Text>
               Pagamento na entrega
               <br />
-              <span>Cartão de Crédito</span>
+              {paymentType === 'creditCard' && <span>Cartão de Crédito</span>}
+              {paymentType === 'debitCard' && <span>Cartão de Débito</span>}
+              {paymentType === 'cash' && <span>Dinheiro</span>}
             </S.Text>
           </S.Info>
         </S.InfoContainer>

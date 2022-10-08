@@ -1,4 +1,11 @@
-import { useEffect, createContext, useReducer, ReactNode } from 'react'
+import {
+  useEffect,
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+} from 'react'
+
 import { Item, cartReducer } from '../reducers/cart/reducer'
 import {
   addNewItemAction,
@@ -8,8 +15,12 @@ import {
   decrementItemAction,
 } from '../reducers/cart/actions'
 
+import { DeliveryContext } from './DeliveryContext'
+
 interface CartContextType {
   items: Item[]
+  subtotal: number
+  total: number
   addItemToCart: (item: Item) => void
   removeItemFromCart: (itemId: number) => void
   clearCart: () => void
@@ -44,7 +55,15 @@ export function CartContextProvider({ children }: CartContextProviderPros) {
     },
   )
 
+  const { deliveryPrice } = useContext(DeliveryContext)
+
   const { items } = cartState
+
+  const subtotal = items.reduce((sum, item) => {
+    return sum + item.price * item.quantity
+  }, 0)
+
+  const total = subtotal + deliveryPrice
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cartState)
@@ -88,6 +107,8 @@ export function CartContextProvider({ children }: CartContextProviderPros) {
     <CartContext.Provider
       value={{
         items,
+        subtotal,
+        total,
         addItemToCart,
         removeItemFromCart,
         clearCart,

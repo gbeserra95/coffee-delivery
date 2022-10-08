@@ -15,6 +15,8 @@ interface Address {
 interface DeliveryContextType {
   address: Address
   paymentType: PaymentType
+  paymentError?: string
+  deliveryPrice: number
   handleAddress: (address: Address) => void
   handlePayment: (payment: PaymentType) => void
 }
@@ -28,6 +30,8 @@ export const DeliveryContext = createContext({} as DeliveryContextType)
 export function DeliveryContextProvider({
   children,
 }: DeliveryContextProviderProps) {
+  const deliveryPrice = 5.5
+
   const initialAddress: Address = {
     zipCode: '',
     street: '',
@@ -79,11 +83,17 @@ export function DeliveryContextProvider({
     setPaymentType(paymentType)
   }
 
+  const paymentError = paymentType
+    ? undefined
+    : 'Selecione uma forma de pagamento'
+
   return (
     <DeliveryContext.Provider
       value={{
         address,
         paymentType,
+        paymentError,
+        deliveryPrice,
         handleAddress,
         handlePayment,
       }}

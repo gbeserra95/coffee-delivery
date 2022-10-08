@@ -21,7 +21,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     categories: ['tradicional'],
-    price: 4.5,
+    price: 5.5,
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     categories: ['tradicional'],
-    price: 4.9,
+    price: 6.5,
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     categories: ['tradicional'],
-    price: 5.9,
+    price: 6.5,
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     categories: ['tradicional', 'gelado'],
-    price: 5.9,
+    price: 6.5,
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     categories: ['tradicional', 'com leite'],
-    price: 5.9,
+    price: 6.5,
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export const CoffeeList: Coffee[] = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     categories: ['tradicional', 'com leite'],
-    price: 5.9,
+    price: 6.5,
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ export const CoffeeList: Coffee[] = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     categories: ['tradicional', 'com leite'],
-    price: 6.9,
+    price: 7.5,
   },
   {
     id: 8,
@@ -80,7 +80,7 @@ export const CoffeeList: Coffee[] = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     categories: ['tradicional', 'com leite'],
-    price: 6.9,
+    price: 7.5,
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     categories: ['tradicional'],
-    price: 7.9,
+    price: 8.5,
   },
   {
     id: 10,
@@ -96,7 +96,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     categories: ['especial', 'com leite'],
-    price: 8.9,
+    price: 9.5,
   },
   {
     id: 11,
@@ -105,7 +105,7 @@ export const CoffeeList: Coffee[] = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     categories: ['especial', 'alcoólico', 'gelado'],
-    price: 9.9,
+    price: 10.5,
   },
   {
     id: 12,
@@ -113,7 +113,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     categories: ['especial'],
-    price: 8.9,
+    price: 9.5,
   },
   {
     id: 13,
@@ -121,7 +121,7 @@ export const CoffeeList: Coffee[] = [
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     categories: ['especial'],
-    price: 7.9,
+    price: 8.5,
   },
   {
     id: 14,
@@ -129,6 +129,6 @@ export const CoffeeList: Coffee[] = [
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     categories: ['especial', 'alcoólico'],
-    price: 11.9,
+    price: 12.5,
   },
 ]

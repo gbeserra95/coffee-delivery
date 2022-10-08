@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
   border-radius: 6px 44px;
   background: ${(props) => props.theme['base-card']};
 
@@ -56,4 +56,12 @@ export const ConfirmButton = styled.button`
   &:hover {
     background: ${(props) => props.theme['yellow-dark']};
   }
+`
+
+export const ErrorMessage = styled.div`
+  text-align: left;
+  font-size: 0.75rem;
+  height: 1rem;
+  color: red;
+  margin-top: -1rem;
 `

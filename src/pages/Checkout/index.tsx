@@ -2,13 +2,16 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
+import { useContext } from 'react'
+import { DeliveryContext } from '../../contexts/DeliveryContext'
+import { CartContext } from '../../contexts/CartContext'
+
 import { Address } from './components/Address'
 import { Confirmation } from './components/Confirmation'
 import { Payment } from './components/Payment'
 
 import * as S from './styles'
-import { useContext } from 'react'
-import { DeliveryContext } from '../../contexts/DeliveryContext'
+import { useNavigate } from 'react-router-dom'
 
 const addressFormValidationSchema = zod.object({
   zipCode: zod.string().min(8),
@@ -23,7 +26,9 @@ const addressFormValidationSchema = zod.object({
 type AddressFormData = zod.infer<typeof addressFormValidationSchema>
 
 export function Checkout() {
-  const { address } = useContext(DeliveryContext)
+  const { items, subtotal, total, clearCart } = useContext(CartContext)
+  const { address, deliveryPrice, paymentError, handleAddress } =
+    useContext(DeliveryContext)
 
   const addressForm = useForm<AddressFormData>({
     resolver: zodResolver(addressFormValidationSchema),
@@ -38,10 +43,31 @@ export function Checkout() {
     },
   })
 
+  const { handleSubmit } = addressForm
+
+  const navigate = useNavigate()
+
+  function handleOrderConfirmation(data: typeof address) {
+    if (!paymentError) {
+      handleAddress(data)
+      console.log({
+        order: {
+          ...items,
+          subtotal,
+          deliveryPrice,
+          total,
+        },
+        address: { ...data },
+      })
+      clearCart()
+      navigate('/success')
+    }
+  }
+
   return (
     <main>
       <FormProvider {...addressForm}>
-        <S.CheckoutContainer>
+        <S.Form onSubmit={handleSubmit(handleOrderConfirmation)}>
           <S.LeftFormContainer>
             <h2>Complete seu pedido</h2>
             <Address />
@@ -51,7 +77,7 @@ export function Checkout() {
             <h2>Cafés selecionados</h2>
             <Confirmation />
           </S.RightFormContainer>
-        </S.CheckoutContainer>
+        </S.Form>
       </FormProvider>
     </main>
   )

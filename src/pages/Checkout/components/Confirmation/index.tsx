@@ -1,10 +1,20 @@
-import { useContext } from 'react'
+import { useFormContext } from 'react-hook-form'
+
+import { useContext, useState } from 'react'
 import { CartContext } from '../../../../contexts/CartContext'
+import { DeliveryContext } from '../../../../contexts/DeliveryContext'
+
 import { Item } from '../Item'
+
 import * as S from './styles'
 
 export function Confirmation() {
-  const { items } = useContext(CartContext)
+  const { items, subtotal, total } = useContext(CartContext)
+  const { deliveryPrice, paymentError } = useContext(DeliveryContext)
+
+  const {
+    formState: { errors },
+  } = useFormContext()
 
   return (
     <S.Container>
@@ -23,18 +33,21 @@ export function Confirmation() {
       <div>
         <S.Subtotal>
           Total de itens
-          <span>R$ 9,90</span>
+          <span>R$ {String(subtotal.toFixed(2)).replace('.', ',')}</span>
         </S.Subtotal>
         <S.Subtotal>
           Entrega
-          <span>R$ 3,50</span>
+          <span>R$ {String(deliveryPrice.toFixed(2)).replace('.', ',')}</span>
         </S.Subtotal>
         <S.Total>
           <span>Total</span>
-          <span>R$ 3,50</span>
+          <span>R$ {String(total.toFixed(2)).replace('.', ',')}</span>
         </S.Total>
       </div>
       <S.ConfirmButton type="submit">Confirmar Pedido</S.ConfirmButton>
+      <S.ErrorMessage>
+        {paymentError && <span>* {paymentError}</span>}
+      </S.ErrorMessage>
     </S.Container>
   )
 }
